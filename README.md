@@ -102,7 +102,9 @@ ClassBody             →  ClassBodyDeclaration
 
 ClassBodyDeclaration  →  MethodDeclaration
 
-MethodDeclaration     →  Block
+MethodDeclaration     →  MethodBody
+
+MethodBody            →  Block
 
 Block                 →  BlockStatement
 
@@ -288,6 +290,55 @@ selection-statement    →  if ( expression ) statement
                            |  switch ( expression ) statement
 
 ## 5. Tabla de comparacion entre GIC, BNF, EBNF y ABNF del lenguaje BRA.
+PP presenta un LP que se denomina BRA. Es un lenguaje muy simple que está diseñado, específicamente, para poseer un LP concreto sobre el que se pueda analizar la construcción de un compilador básico. Informalmente se define de esta manera:
+El único tipo de datos es entero
+Todos los identificadores son declarados implícitamente y con una longitud máxima de 4 caracteres
+Los identificadores deben comenzar con una letra y están compuestos de letras, dígitos y guiones bajos. No puede terminar con guión tampoco tener dos guiones seguidos
+Las constantes son secuencias de dígitos (números enteros)
+Hay dos tipos de sentencias:
+Asignación:
+ID ::= Expressão;
+Expressão es infija y se construye con identificadores, constantes y los operadores + y -; los paréntesis están permitidos
+Entrada/Salida:
+ler(lista de IDs);
+escrever(lista de Expressões);
+Cada sentencia termina con un "punto y coma" (;)
+El cuerpo de un programa está delimitado por começo e final
+começo, final, ler, escrever son palabras reservadas y deben escribirse en minúsculas
+El siguiente es un programa fuente en BRA:
+começo
+	ler(a,b);
+	cc ::= a + (b - 2);
+	escrever(cc, a+4);
+final
+
+ABNF <br>
+programa : **começo** $sentencias$  **final** <br>
+$sentencias$ : $sentencia$ { $sentencia$ } <br>
+$sentencia$ :  uno de <br>
+$~~~~~~~~~~~~~~~~~$ $identificador$ **::=** $Expressão$ ; <br> 
+$~~~~~~~~~~~~~~~~~$ ler($identificadores$) ; <br>
+$~~~~~~~~~~~~~~~~~$ escrever($Expressões$) ; <br>
+$identificadores$ :  $identificador$ {,  $identificador$ } <br>
+$Expressões$ :  $Expressão$ {,  $Expressão$ } <br>
+$Expressão$ :  $primaria$ { $operadorAditivo$ $primaria$} <br>
+$primaria$ : uno de <br>
+$~~~~~~~~~~~~~~~~$ $identificador$ <br>
+$~~~~~~~~~~~~~~~~$ $constante$ <br>
+$~~~~~~~~~~~~~~~~$ ( $Expressão$ ) <br>
+$identificador$ : uno de <br>
+$~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ <br>
+$~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ $alfaNum$ <br>
+$~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ $alfaNum$ $alfaNum$ <br>
+$~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ $alfaNum$ $alfaNum$ $alfaNum$ <br>
+$~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ _ $alfaNum$ <br>
+$~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ _ $alfaNum$ $alfaNum$ <br>
+$~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ $alfaNum$ _ $alfaNum$ <br>
+$constante$ : digito { digito } <br>
+$alfaNum$ : uno de $letra$ $digito$ <br>
+$letra$ : una de **a-z A-Z** <br>
+$digito$ : uno de **0-9** <br>
+$operadorAditivo$ : uno de **+ -** <br>
 
 ## 6. Mapa conceptual sobre control de flujos. 
 ![flujo](image-1.png)
