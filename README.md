@@ -320,40 +320,40 @@ $~~~~~~~~$ escrever(cc, a+4); <br>
 
 GIC <br>
 
-$<programa>$        ::= começo $<sentencias>$ final
+$<programa>        ::= começo <sentencias> final$
 
-$<sentencias>$      ::= $<sentencia>$
-                   |  $<sentencias>$ $<sentencia>$
+$<sentencias>      ::= <sentencia>$
+                   |  $<sentencias> <sentencia>$
 
-$<sentencia>$       ::= $<identificador>$ ::= $<Expressão>$ ;
+$<sentencia>       ::= <identificador> ::= <Expressão>$ ;
                    |  ler ( $<identificadores>$ ) ;
                    |  escrever ( $<Expressões>$ ) ;
 
-$<identificadores>$ ::= $<identificador>$
-                   |  $<identificadores>$ , $<identificador>$
+$<identificadores> ::= <identificador>$
+                   |  $<identificadores> , <identificador>$
 
-$<Expressões>$      ::= $<Expressão>$
-                   |  $<Expressões>$ , $<Expressão>$
+$<Expressões>      ::= <Expressão>$
+                   |  $<Expressões> , <Expressão>$
 
-$<Expressão>$       ::= $<primaria>$
-                   |  $<Expressão>$ $<operadorAditivo>$ $<primaria>$
+$<Expressão>       ::= <primaria>$
+                   |  $<Expressão> <operadorAditivo> <primaria>$
 
-$<primaria>$        ::= $<identificador>$
+$<primaria>        ::= <identificador>$
                    |  $<constante>$
                    |  ( $<Expressão>$ )
 
-$<identificador>$   ::= $<letra>$
-                   |  $<letra>$ $<alfaNum>$
-                   |  $<letra>$ $<alfaNum>$ $<alfaNum>$
-                   |  $<letra>$ $<alfaNum>$ $<alfaNum>$ $<alfaNum>$
-                   |  $<letra>$ _ $<alfaNum>$
-                   |  $<letra>$ _ $<alfaNum>$ $<alfaNum>$
-                   |  $<letra>$ $<alfaNum>$ _ $<alfaNum>$
+$<identificador>   ::= <letra>$
+                   |  $<letra> <alfaNum>$
+                   |  $<letra> <alfaNum> <alfaNum>$
+                   |  $<letra> <alfaNum> <alfaNum> <alfaNum>$
+                   |  $<letra> _ <alfaNum>$
+                   |  $<letra> _ <alfaNum> <alfaNum>$
+                   |  $<letra> <alfaNum> _ <alfaNum>$
 
-$<constante>$       ::= $<digito>$
-                   |  $<constante>$ $<digito>$
+$<constante>       ::= <digito>$
+                   |  $<constante> <digito>$
 
-$<alfaNum>$         ::= $<letra>$
+$<alfaNum>         ::= <letra>$
                    |  $<digito>$
 
 $<letra>$           ::= a | ... | z
@@ -365,40 +365,40 @@ $<digito>$          ::= 0 | ... | 9
 $<operadorAditivo>$ ::= + | -
 
 BNF <br>
-$<programa>$        ::= começo $<sentencias>$ final
+$<programa>        ::= começo <sentencias>$ final
 
-$<sentencias>$      ::= $<sentencia>$ 
-                   |  $<sentencias>$ $<sentencia>$
+$<sentencias>      ::= <sentencia>$ 
+                   |  $<sentencias> <sentencia>$
 
-$<sentencia>$       ::= $<identificador>$ ::= $<Expressão>$ ;
+$<sentencia>       ::= <identificador> ::= <Expressão>$ ;
                    |  ler ( $<identificadores>$ ) ;
                    |  escrever ( $<Expressões>$ ) ;
 
-$<identificadores>$ ::= $<identificador>$
-                   |  $<identificadores>$ , $<identificador>$
+$<identificadores> ::= <identificador>$
+                   |  $<identificadores> , <identificador>$
 
-$<Expressões>$      ::= $<Expressão>$
-                   |  $<Expressões>$ , $<Expressão>$
+$<Expressões>      ::= <Expressão>$
+                   |  $<Expressões> , <Expressão>$
 
-$<Expressão>$       ::= $<primaria>$
-                   |  $<Expressão>$ $<operadorAditivo>$ $<primaria>$
+$<Expressão>       ::= <primaria>$
+                   |  $<Expressão> <operadorAditivo> <primaria>$
 
-$<primaria>$          ::= $<identificador>$
+$<primaria>          ::= <identificador>$
                    |  $<constante>$
                    |  ( $<Expressão>$ )
 
-$<identificador>$   ::= $<letra>$
-                   |  $<letra>$ $<alfaNum>$
-                   |  $<letra>$ $<alfaNum>$ $<alfaNum>$
-                   |  $<letra>$ $<alfaNum>$ $<alfaNum>$ $<alfaNum>$
-                   |  $<letra>$ _ $<alfaNum>$
-                   |  $<letra>$ _ $<alfaNum>$ $<alfaNum>$
-                   |  $<letra>$ $<alfaNum>$ _ $<alfaNum>$
+$<identificador>   ::= <letra>$
+                   |  $<letra> <alfaNum>$
+                   |  $<letra> <alfaNum> <alfaNum>$
+                   |  $<letra> <alfaNum> <alfaNum> <alfaNum>$
+                   |  $<letra> _ <alfaNum>$
+                   |  $<letra> _ <alfaNum> <alfaNum>$
+                   |  $<letra> <alfaNum> _ <alfaNum>$
 
-$<constante>$       ::= $<digito>$
-                   |  $<digito>$ $<constante>$
+$<constante>       ::= <digito>$
+                   |  $<digito> <constante>$
 
-$<alfaNum>$         ::= $<letra>$
+$<alfaNum>         ::= <letra>$
                    |  $<digito>$
 
 $<letra>$           ::= a|...|z
@@ -410,35 +410,35 @@ $<operadorAditivo>$ ::= + | -
 
 
 EBNF <br>
-$<programa>$        ::= começo $<sentencias>$ final
+$<programa>        ::= começo <sentencias>$ final
 
-$<sentencias>$      ::= {$<sentencia>$}+
+$<sentencias>      ::= {<sentencia>}+$
 
-$<sentencia>$       ::= $<identificador>$ ::= $<Expressão>$ ;
+$<sentencia>       ::= <identificador> ::= <Expressão>$ ;
                    |  ler ( $<identificadores>$ ) ;
                    | escrever( $<Expressões>$  ) ;
 
-$<identificadores>$ ::= $<identificador>$ {(, $<identificador>$)}*
+$<identificadores> ::= <identificador> {(, <identificador>)}*$
 
-$<Expressões>$      ::= $<Expressão>$ {(, $<Expressão>$)}*
+$<Expressões>      ::= <Expressão> {(, <Expressão>)}$*
 
-$<Expressão>$       ::= $<primaria>$ {( $<operadorAditivo>$ $<primaria>$ )}*
+$<Expressão>       ::= <primaria> {( <operadorAditivo> <primaria> )}$*
 
-$<primaria>$        ::= $<identificador>$
+$<primaria>        ::= <identificador>$
                   | $<constante>$
                   | ( $<Expressão>$ )
 
-$<identificador>$   ::= $<letra>$
-                  | $<letra>$ $<alfaNum>$
-                  | $<letra>$ $<alfaNum>$ $<alfaNum>$
-                  | $<letra>$ $<alfaNum>$ $<alfaNum>$ $<alfaNum>$
-                  | $<letra>$ _ $<alfaNum>$
-                  | $<letra>$ _ $<alfaNum>$ $<alfaNum>$
-                  | $<letra>$ $<alfaNum>$ _ $<alfaNum>$
+$<identificador>   ::= <letra>$
+                  | $<letra> <alfaNum>$
+                  | $<letra> <alfaNum> <alfaNum>$
+                  | $<letra> <alfaNum> <alfaNum> <alfaNum>$
+                  | $<letra> _ <alfaNum>$
+                  | $<letra> _ <alfaNum> <alfaNum>$
+                  | $<letra> <alfaNum> _ <alfaNum>$
 
-$<constante>$       ::= {$<digito>$}+
+$<constante>       ::= {<digito>}$+
 
-$<alfaNum>$         ::= $<letra>$ | $<digito>$
+$<alfaNum>         ::= <letra> | <digito>$
 
 $<letra>$           ::= a | ... | z | A | ... | Z
 
