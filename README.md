@@ -290,29 +290,164 @@ selection-statement    →  if ( expression ) statement
                            |  switch ( expression ) statement
 
 ## 5. Tabla de comparacion entre GIC, BNF, EBNF y ABNF del lenguaje BRA.
-PP presenta un LP que se denomina BRA. Es un lenguaje muy simple que está diseñado, específicamente, para poseer un LP concreto sobre el que se pueda analizar la construcción de un compilador básico. Informalmente se define de esta manera:
-El único tipo de datos es entero
-Todos los identificadores son declarados implícitamente y con una longitud máxima de 4 caracteres
-Los identificadores deben comenzar con una letra y están compuestos de letras, dígitos y guiones bajos. No puede terminar con guión tampoco tener dos guiones seguidos
-Las constantes son secuencias de dígitos (números enteros)
-Hay dos tipos de sentencias:
-Asignación:
-ID ::= Expressão;
-Expressão es infija y se construye con identificadores, constantes y los operadores + y -; los paréntesis están permitidos
-Entrada/Salida:
-ler(lista de IDs);
-escrever(lista de Expressões);
-Cada sentencia termina con un "punto y coma" (;)
-El cuerpo de un programa está delimitado por começo e final
-começo, final, ler, escrever son palabras reservadas y deben escribirse en minúsculas
-El siguiente es un programa fuente en BRA:
-começo
-	ler(a,b);
-	cc ::= a + (b - 2);
-	escrever(cc, a+4);
-final
+PP presenta un LP que se denomina BRA. <br>
+Es un lenguaje muy simple que está diseñado, específicamente, para poseer un LP concreto sobre el que se pueda analizar la construcción de un compilador básico. <br>
+Informalmente se define de esta manera: <br>
+El único tipo de datos es entero <br>
+Todos los identificadores son declarados implícitamente y con una longitud máxima de 4 caracteres. <br>
+Los identificadores deben comenzar con una letra y están compuestos de letras, dígitos y guiones bajos. <br>
+No puede terminar con guión tampoco tener dos guiones seguidos. <br>
+Las constantes son secuencias de dígitos (números enteros). <br>
+Hay dos tipos de sentencias: <br>
+Asignación: <br>
+$~~~~~~~~~~~~~~~~~$ ID ::= Expressão; <br>
+$~~~~~~~~~~~~~~~~~$ Expressão es infija y se construye con identificadores, constantes y los operadores + y -; <br>
+$~~~~~~~~~~~~~~~~~$ los paréntesis están permitidos <br>
+Entrada/Salida: <br>
+$~~~~~~~~~~~~~~~~~$ ler(lista de IDs); <br>
+$~~~~~~~~~~~~~~~~~$ escrever(lista de Expressões); <br>
+Cada sentencia termina con un "punto y coma" (;) <br>
+El cuerpo de un programa está delimitado por começo e final <br>
+começo, final, ler, escrever son palabras reservadas y deben escribirse en minúsculas <br>
+
+El siguiente es un programa fuente en BRA:<br>
+**começo** <br>
+$~~~~~~~~$ ler(a,b); <br>
+$~~~~~~~~$ cc ::= a + (b - 2); <br>
+$~~~~~~~~$ escrever(cc, a+4); <br>
+**final** <br>
+
+
+GIC <br>
+
+$<programa>$        ::= começo $<sentencias>$ final
+
+$<sentencias>$      ::= $<sentencia>$
+                   |  $<sentencias>$ $<sentencia>$
+
+$<sentencia>$       ::= $<identificador>$ ::= $<Expressão>$ ;
+                   |  ler ( $<identificadores>$ ) ;
+                   |  escrever ( $<Expressões>$ ) ;
+
+$<identificadores>$ ::= $<identificador>$
+                   |  $<identificadores>$ , $<identificador>$
+
+$<Expressões>$      ::= $<Expressão>$
+                   |  $<Expressões>$ , $<Expressão>$
+
+$<Expressão>$       ::= $<primaria>$
+                   |  $<Expressão>$ $<operadorAditivo>$ $<primaria>$
+
+$<primaria>$        ::= $<identificador>$
+                   |  $<constante>$
+                   |  ( $<Expressão>$ )
+
+$<identificador>$   ::= $<letra>$
+                   |  $<letra>$ $<alfaNum>$
+                   |  $<letra>$ $<alfaNum>$ $<alfaNum>$
+                   |  $<letra>$ $<alfaNum>$ $<alfaNum>$ $<alfaNum>$
+                   |  $<letra>$ _ $<alfaNum>$
+                   |  $<letra>$ _ $<alfaNum>$ $<alfaNum>$
+                   |  $<letra>$ $<alfaNum>$ _ $<alfaNum>$
+
+$<constante>$       ::= $<digito>$
+                   |  $<constante>$ $<digito>$
+
+$<alfaNum>$         ::= $<letra>$
+                   |  $<digito>$
+
+$<letra>$           ::= a | ... | z
+                   |  A | ... | Z
+
+$<digito>$          ::= 0 | ... | 9
+
+
+$<operadorAditivo>$ ::= + | -
+
+BNF <br>
+$<programa>$        ::= começo $<sentencias>$ final
+
+$<sentencias>$      ::= $<sentencia>$ 
+                   |  $<sentencias>$ $<sentencia>$
+
+$<sentencia>$       ::= $<identificador>$ ::= $<Expressão>$ ;
+                   |  ler ( $<identificadores>$ ) ;
+                   |  escrever ( $<Expressões>$ ) ;
+
+$<identificadores>$ ::= $<identificador>$
+                   |  $<identificadores>$ , $<identificador>$
+
+$<Expressões>$      ::= $<Expressão>$
+                   |  $<Expressões>$ , $<Expressão>$
+
+$<Expressão>$       ::= $<primaria>$
+                   |  $<Expressão>$ $<operadorAditivo>$ $<primaria>$
+
+$<primaria>$          ::= $<identificador>$
+                   |  $<constante>$
+                   |  ( $<Expressão>$ )
+
+$<identificador>$   ::= $<letra>$
+                   |  $<letra>$ $<alfaNum>$
+                   |  $<letra>$ $<alfaNum>$ $<alfaNum>$
+                   |  $<letra>$ $<alfaNum>$ $<alfaNum>$ $<alfaNum>$
+                   |  $<letra>$ _ $<alfaNum>$
+                   |  $<letra>$ _ $<alfaNum>$ $<alfaNum>$
+                   |  $<letra>$ $<alfaNum>$ _ $<alfaNum>$
+
+$<constante>$       ::= $<digito>$
+                   |  $<digito>$ $<constante>$
+
+$<alfaNum>$         ::= $<letra>$
+                   |  $<digito>$
+
+$<letra>$           ::= a|...|z
+                   |  A|...|Z
+
+$<digito>$          ::= 0|...|9
+
+$<operadorAditivo>$ ::= + | -
+
+
+EBNF <br>
+$<programa>$        ::= começo $<sentencias>$ final
+
+$<sentencias>$      ::= {$<sentencia>$}+
+
+$<sentencia>$       ::= $<identificador>$ ::= $<Expressão>$ ;
+                   |  ler ( $<identificadores>$ ) ;
+                   | escrever( $<Expressões>$  ) ;
+
+$<identificadores>$ ::= $<identificador>$ {(, $<identificador>$)}*
+
+$<Expressões>$      ::= $<Expressão>$ {(, $<Expressão>$)}*
+
+$<Expressão>$       ::= $<primaria>$ {( $<operadorAditivo>$ $<primaria>$ )}*
+
+$<primaria>$        ::= $<identificador>$
+                  | $<constante>$
+                  | ( $<Expressão>$ )
+
+$<identificador>$   ::= $<letra>$
+                  | $<letra>$ $<alfaNum>$
+                  | $<letra>$ $<alfaNum>$ $<alfaNum>$
+                  | $<letra>$ $<alfaNum>$ $<alfaNum>$ $<alfaNum>$
+                  | $<letra>$ _ $<alfaNum>$
+                  | $<letra>$ _ $<alfaNum>$ $<alfaNum>$
+                  | $<letra>$ $<alfaNum>$ _ $<alfaNum>$
+
+$<constante>$       ::= {$<digito>$}+
+
+$<alfaNum>$         ::= $<letra>$ | $<digito>$
+
+$<letra>$           ::= a | ... | z | A | ... | Z
+
+$<digito>$          ::= 0 | ... | 9
+
+$<operadorAditivo>$ ::= + | -
 
 ABNF <br>
+
 programa : **começo** $sentencias$  **final** <br>
 $sentencias$ : $sentencia$ { $sentencia$ } <br>
 $sentencia$ :  uno de <br>
@@ -335,10 +470,15 @@ $~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ _ $alfaNum$ <br>
 $~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ _ $alfaNum$ $alfaNum$ <br>
 $~~~~~~~~~~~~~~~~~~~~~~~~~$ $letra$ $alfaNum$ _ $alfaNum$ <br>
 $constante$ : digito { digito } <br>
-$alfaNum$ : uno de $letra$ $digito$ <br>
-$letra$ : una de **a-z A-Z** <br>
-$digito$ : uno de **0-9** <br>
+$alfaNum$ : uno de   <br>
+$~~~~~~~~~~~~~~~~~~$ $letra$ <br>
+$~~~~~~~~~~~~~~~~~~$ $digito$ <br>
+$letra$ : una de **a...z A...Z** <br>
+$digito$ : uno de **0...9** <br>
 $operadorAditivo$ : uno de **+ -** <br>
+
+
+
 
 ## 6. Mapa conceptual sobre control de flujos. 
 ![flujo](image-1.png)
