@@ -1,15 +1,16 @@
 
-# Caracteristica de lenguajes de programación
+## Caracteristica de lenguajes de programación
 
-## Lenguajes de programación son herramientas que permiten a los desarrolladores escribir instrucciones que una computadora puede entender y ejecutar. Cada lenguaje tiene sus propias características, ventajas y desventajas. A continuación, se presentan algunas características comunes de los lenguajes de programación:
+### Lenguajes de programación son herramientas que permiten a los desarrolladores escribir instrucciones que una computadora puede entender y ejecutar. Cada lenguaje tiene sus propias características, ventajas y desventajas. A continuación, se presentan algunas características comunes de los lenguajes de programación:
 
 ## 1. Clasificacion de cinco lenguajes de programación  segun taxiomas + dato de color
 
-## [Clasificacion de lenguajes](auxiliares/Clasificación_de_lenguajes.xlsx)
+### [Clasificacion de lenguajes](auxiliares/Clasificación_de_lenguajes.xlsx)
+###  [ Direccion web: clasificacion de lenguajes ](https://docs.google.com/spreadsheets/d/1slIu05IXU63wQvQ27On1gVK0kN2VXIfL/edit?usp=drive_link&ouid=109136209806409698465&rtpof=true&sd=true)
 
 ## 2. Analisis de datos relacionados a los lenguajes de programación + limpieza de datos + visualización de datos mediante graficos 
 ## [Archivo de graficos](auxiliares/tarea_graficos.ipynb)
-## direeccion colab web: https://colab.research.google.com/drive/1wM_ArWysIqf7hBn95MMzQg9lXflQ9BFu
+## [direccion graficos colab web:](https://colab.research.google.com/drive/1wM_ArWysIqf7hBn95MMzQg9lXflQ9BFu)
 
 ## 3. Solucionar un problema en diferente paradigmas.
 ## Paradigmas de programación
@@ -489,4 +490,5 @@ $operadorAditivo$ : uno de **+ -** <br>
 ## 6. Mapa conceptual sobre control de flujos. 
 ![flujo](image-1.png)
 
-## [Mapa flujo de control](auxiliares/Mapa_flujo_de_control.jpg)
+## [Mapa control de flujo](auxiliares/Mapa_flujo_de_control.jpg)
+## [Direccion web: mapa control de flujo](https://drive.google.com/file/d/1OjgloaKD4cvaadUkNaeojfSGjLu3E_r0/view?usp=drive_link)
