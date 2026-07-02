@@ -9,8 +9,86 @@
 ###  [ Direccion web: clasificacion de lenguajes ](https://docs.google.com/spreadsheets/d/1slIu05IXU63wQvQ27On1gVK0kN2VXIfL/edit?usp=drive_link&ouid=109136209806409698465&rtpof=true&sd=true)
 
 ## 2. Analisis de datos relacionados a los lenguajes de programación + limpieza de datos + visualización de datos mediante graficos 
+
+Datos iniciales: [TIOBE Index](https://www.tiobe.com/tiobe-index/)
+|index|Rank|Language|Rating\_Pct|Change\_Pct|Status|Paradigm|Year\_Created|Creator|Primary\_Use|Typing|
+|---|---|---|---|---|---|---|---|---|---|---|
+|0|1|Python|21\.81|1\.85|↑|Multi-paradigm|1991|Guido van Rossum|AI/ML, Data Science, Web|Dynamic|
+|1|2|C|11\.05|-5\.41|↓|Procedural|1972|Dennis Ritchie|Systems, Embedded, OS|Static|
+|2|3|C++|8\.55|-1\.72|↓|Multi-paradigm|1985|Bjarne Stroustrup|Systems, Games, HPC|Static|
+|3|4|Java|8\.12|-3\.38|↓|Object-oriented|1995|James Gosling|Enterprise, Android, Web|Static|
+|4|5|C\#|6\.83|0\.73|↑|Object-oriented|2000|Anders Hejlsberg|Enterprise, Games, Web|Static|
+|5|6|JavaScript|2\.92|0\.1|↑|Multi-paradigm|1995|Brendan Eich|Web, Full-stack, Mobile|Dynamic|
+|6|7|Visual Basic|2\.85|0\.31|↑|Object-oriented|1991|Microsoft|Enterprise, Desktop|Static|
+|7|8|R|2\.19|0\.8|↑|Functional|1993|R\. Ihaka & R\. Gentleman|Statistics, Data Science|Dynamic|
+|8|9|SQL|1\.93|-0\.18|↓|Declarative|1974|Donald Chamberlin|Databases, Analytics|NaN|
+|9|10|Delphi/Object Pascal|1\.88|0\.42|↑|Object-oriented|1995|Anders Hejlsberg|Desktop, Enterprise|Static|
+|10|11|Perl|1\.67|0\.9|↑|Multi-paradigm|1987|Larry Wall|Text Processing, Scripting|Dynamic|
+|11|12|Fortran|1\.55|0\.32|↑|Procedural|1957|John Backus|Scientific, HPC|Static|
+|12|13|PHP|1\.48|-0\.21|↓|Multi-paradigm|1995|Rasmus Lerdorf|Web Backend|Dynamic|
+|13|14|Rust|1\.43|0\.38|↑|Multi-paradigm|2010|Graydon Hoare|Systems, WebAssembly|Static|
+|14|15|Go|1\.38|-0\.36|↓|Multi-paradigm|2009|Robert Griesemer|Cloud, Microservices|Static|
+|15|16|MATLAB|1\.25|0\.17|↑|Multi-paradigm|1984|Cleve Moler|Engineering, Research|Dynamic|
+|16|17|Scratch|1\.18|0\.12|↑|Visual|2002|MIT Media Lab|Education|NaN|
+|17|18|Assembly|1\.12|-0\.22|↓|Imperative|1949|Various|Embedded, OS Kernels|NaN|
+|18|19|Kotlin|1\.08|0\.15|↑|Multi-paradigm|2011|JetBrains|Android, Server-side|Static|
+|19|20|TypeScript|1\.05|0\.21|↑|Multi-paradigm|2012|Anders Hejlsberg|Web, Full-stack|Static|
+|20|21|Swift|1\.02|-0\.08|↓|Multi-paradigm|2014|Apple Inc\.|iOS, macOS|Static|
+|21|22|COBOL|0\.76|-0\.15|↓|Procedural|1959|Grace Hopper \(team\)|Banking, Government|Static|
+|22|23|Classic Visual Basic|0\.74|-0\.05|↓|Object-oriented|1991|Microsoft|Legacy Desktop|Static|
+|23|24|Prolog|0\.72|0\.1|↑|Logic|1972|Alain Colmerauer|AI, NLP|Dynamic|
+|24|25|Lua|0\.68|0\.04|↑|Multi-paradigm|1993|PUC-Rio team|Games, Embedded|Dynamic|
+|25|26|Ruby|0\.65|-0\.18|↓|Object-oriented|2005|Yukihiro Matsumoto|Web, Scripting|Dynamic|
+|26|27|Dart|0\.62|0\.09|↑|Object-oriented|2011|Google|Mobile \(Flutter\)|Static|
+|27|28|Scala|0\.58|-0\.06|↓|Multi-paradigm|2004|Martin Odersky|Big Data, Backend|Static| 
+<br>
+
+#### verificamos si hay celdas con valores nulos, si hay duplicados, luego se realiza un perfilado de los datos, y una limpieza, se verifican inconsistencias y se convierten los valore nulos a string n/a 
+
+### Resultado:
+|index|Rank|Language|Rating\_Pct|Change\_Pct|Status|Paradigm|Year\_Created|Creator|Primary\_Use|Typing|
+|---|---|---|---|---|---|---|---|---|---|---|
+|0|1|Python|21\.81|1\.85|↑|multi-paradigm|1991|Guido van Rossum|AI/ML, Data Science, Web|dynamic|
+|1|2|C|11\.05|-5\.41|↓|procedural|1972|Dennis Ritchie|Systems, Embedded, OS|static|
+|2|3|C++|8\.55|-1\.72|↓|multi-paradigm|1985|Bjarne Stroustrup|Systems, Games, HPC|static|
+|3|4|Java|8\.12|-3\.38|↓|object-oriented|1995|James Gosling|Enterprise, Android, Web|static|
+|4|5|C\#|6\.83|0\.73|↑|object-oriented|2000|Anders Hejlsberg|Enterprise, Games, Web|static|
+|5|6|JavaScript|2\.92|0\.1|↑|multi-paradigm|1995|Brendan Eich|Web, Full-stack, Mobile|dynamic|
+|6|7|Visual Basic|2\.85|0\.31|↑|object-oriented|1991|Microsoft|Enterprise, Desktop|static|
+|7|8|R|2\.19|0\.8|↑|functional|1993|R\. Ihaka & R\. Gentleman|Statistics, Data Science|dynamic|
+|8|9|SQL|1\.93|-0\.18|↓|declarative|1974|Donald Chamberlin|Databases, Analytics|n/a|
+|9|10|Delphi/Object Pascal|1\.88|0\.42|↑|object-oriented|1995|Anders Hejlsberg|Desktop, Enterprise|static|
+|10|11|Perl|1\.67|0\.9|↑|multi-paradigm|1987|Larry Wall|Text Processing, Scripting|dynamic|
+|11|12|Fortran|1\.55|0\.32|↑|procedural|1957|John Backus|Scientific, HPC|static|
+|12|13|PHP|1\.48|-0\.21|↓|multi-paradigm|1995|Rasmus Lerdorf|Web Backend|dynamic|
+|13|14|Rust|1\.43|0\.38|↑|multi-paradigm|2010|Graydon Hoare|Systems, WebAssembly|static|
+|14|15|Go|1\.38|-0\.36|↓|multi-paradigm|2009|Robert Griesemer|Cloud, Microservices|static|
+|15|16|MATLAB|1\.25|0\.17|↑|multi-paradigm|1984|Cleve Moler|Engineering, Research|dynamic|
+|16|17|Scratch|1\.18|0\.12|↑|multi-paradigm|2002|MIT Media Lab|Education|n/a|
+|17|18|Assembly|1\.12|-0\.22|↓|imperative|1949|Various|Embedded, OS Kernels|n/a|
+|18|19|Kotlin|1\.08|0\.15|↑|multi-paradigm|2011|JetBrains|Android, Server-side|static|
+|19|20|TypeScript|1\.05|0\.21|↑|multi-paradigm|2012|Anders Hejlsberg|Web, Full-stack|static|
+|20|21|Swift|1\.02|-0\.08|↓|multi-paradigm|2014|Apple Inc\.|iOS, macOS|static|
+|21|22|COBOL|0\.76|-0\.15|↓|procedural|1959|Grace Hopper \(team\)|Banking, Government|static|
+|22|23|Classic Visual Basic|0\.74|-0\.05|↓|object-oriented|1991|Microsoft|Legacy Desktop|static|
+|23|24|Prolog|0\.72|0\.1|↑|logic|1972|Alain Colmerauer|AI, NLP|dynamic|
+|24|25|Lua|0\.68|0\.04|↑|multi-paradigm|1993|PUC-Rio team|Games, Embedded|dynamic|
+|25|26|Ruby|0\.65|-0\.18|↓|object-oriented|2005|Yukihiro Matsumoto|Web, Scripting|dynamic|
+|26|27|Dart|0\.62|0\.09|↑|object-oriented|2011|Google|Mobile \(Flutter\)|static|
+|27|28|Scala|0\.58|-0\.06|↓|multi-paradigm|2004|Martin Odersky|Big Data, Backend|static|
+<br>
+
+### representacion grafica de los datos obtenidos:
+### Top 12 lenguajes relacion entre ranking y lenguaje.
+![alt text](image-2.png)
+
+## Relacion entre año de creacion y 15 lenguajes mas populares.
+![alt text](image-4.png)
+
+## Relacion entre Lenguajes y paradigma con status de popularidad.
+![alt text](image-9.png)
 ## [Archivo de graficos](auxiliares/tarea_graficos.ipynb)
-## [direccion graficos colab web:](https://colab.research.google.com/drive/1wM_ArWysIqf7hBn95MMzQg9lXflQ9BFu)
+## [Archivo graficos colab web](https://colab.research.google.com/drive/1wM_ArWysIqf7hBn95MMzQg9lXflQ9BFu)
 
 ## 3. Solucionar un problema en diferente paradigmas.
 ## Paradigmas de programación
@@ -67,11 +145,9 @@
 
 
 ## [Ejemplos en distintos lenguajes](auxiliares/multiparadigmas.ipynb)
+## [Ejemplos en distintos lenguajes web](https://drive.google.com/file/d/1xHD2jZqTkbskAKBPgjoTo197Dj1qEd7t/view?usp=sharing)
 
-
-## 4. Identificar la gramatica del IF en los distintos lenguajes proporcionados reescribiendo las producciones desde el axioma hasta los terminales.
-
-desde el axioma hasta el IF, y llevarlo un nivel hacia abajo, por el camino mas corto.
+## 4. Identificar la gramatica del IF en los distintos lenguajes proporcionados reescribiendo las producciones desde el axioma hasta la sentencia IF.
 
 ## Gramática del IF en distintos lenguajes
   - Sintaxis para Java, Python, Kotlin, C++, Go, C
